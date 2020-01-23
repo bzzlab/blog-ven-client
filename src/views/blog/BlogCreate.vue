@@ -41,11 +41,27 @@
         }),
         mounted() {
             //later replace by fetch(this.$store.state.apiUrl);
-            fetch(API_URL +'/api/blog',
-                {method: 'GET'})
-                //pay attention .then(res => console.log(res.json())) won't work
-                //.then(res => console.log(res))
-                .then(res => this.blogs = res.data.result)
+
+            fetch(API_URL +'/api/blog', {
+                method: 'GET', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                    'Content-Type': 'application/json'
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer, *client
+                body: JSON.stringify(data) // body data type must match "Content-Type" header
+            }).then(function (res) {
+                return res.json(); // parses JSON response into native JavaScript objects
+            });
+
+            // fetch(API_URL +'/api/blog', {method: 'GET', headers: 'application/json'})
+            //     //pay attention .then(res => console.log(res.json())) won't work
+            //     .then(res => console.log(res));
+            //     //.then(res => this.blogs = res.data.result);
         },
         methods:{
             addPost(){

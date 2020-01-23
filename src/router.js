@@ -19,14 +19,14 @@ const routes = new Router({
         }, {
             path: "/blog",
             name: "blog-create",
-            component: BlogCreate,
-            beforeEnter: (toolbar,from,next) => {
-                if (auth.isLoggedIn){
-                    next();
-                } else {
-                    next('/login');
-                }
-            }
+            component: BlogCreate
+            // beforeEnter: (toolbar,from,next) => {
+            //     if (auth.isLoggedIn){
+            //         next();
+            //     } else {
+            //         next('/login');
+            //     }
+            // }
         }, {
             path: "/login",
             name: "login",

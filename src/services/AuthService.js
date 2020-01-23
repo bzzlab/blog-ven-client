@@ -4,7 +4,8 @@ export function isLoggedIn() {
     const token = localStorage.getItem('token');
     if (token == null){
         console.log("is not logged in!");
-        return false;
+        //TODO: for testing purpose set to true
+        return true;
     } else {
         console.log("is logged in!");
         return true;

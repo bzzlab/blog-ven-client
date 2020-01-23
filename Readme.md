@@ -6,10 +6,10 @@ This Blog-application has been developed with the following technology-stack:
 * Alasql.js (simple file-based database)
 * Node.js (webbased backend infrastructure)
 
-#### Frontend
+#### Frontend (external repo)
 * Vue.js (component-based user-interfaces)
 * babel (transpiler, compatibility of new ECMAScript 6 and higher to ECMAScript 5)
-* 
+
 
 ## Part 1: Installing the backend with a REST-API
 ### Prerequisite
@@ -32,10 +32,13 @@ and then type  in the administrator password.
 In the following installation guide the `sudo`-command is omitted. But be aware of the if you're an Apple user without default administrator privileges.
 
 ### Installation guide
-Step 1: Download the zip-file and extract the app     
-Step 2: Change into the app directory i.e.
+Step 1: Clone the code from this repo from the command-line
 ```
-cd blog-ven
+git clone https://github.com/bzzlab/blog-ven-client.git
+```
+Step 2: Change into the app directory
+```
+cd blog-ven-client
 ```
 Step 3: Install app dependencies
 ```
@@ -43,14 +46,20 @@ npm install
 ```
 Step 4: Build application
 ```
-npm run build-dev
+npm run build-client
 ```
 Step 5: Run application
 ```
-npm run serve-dev
+npm run run-client
 ```
 
-### FAQ
+
+### Tools, helpers and quirks
+#### Which IDE (integrated development environment) is suitable?
+There are a lot of good IDE's. The following ide are widespread
+* [WebStorm](https://www.jetbrains.com/webstorm/) from Jetbrains (my preference)
+* [Visual Studio Code](https://code.visualstudio.com/download) from Microsoft 
+
 
 
 #### How to debug a node app?
@@ -61,82 +70,6 @@ options is
 ```
 Blow the image *Edit Configuration ...* in WebStorm
 ![alt text](doc/webstorm-node-debug-option.png "WebStorm-IDE Node")
-
-
-#### Which IDE (integrated development environment) is suitable?
-There are a lot of good IDE's. The following ide are widespread
-* [WebStorm](https://www.jetbrains.com/webstorm/) from Jetbrains (my preference)
-* [Visual Studio Code](https://code.visualstudio.com/download) from Microsoft 
-
- 
-### How to test the REST-API
-
-#### With curl
-curl is command-line based tool which is to used to submit HTTP-requests and sending data to the backend 
-(usually done via webform).
-  
-For GET-Requests:
-```
-curl -i -X GET http://localhost:3000/api/blog
-```
-
-For POST-Requests:
-```
-curl -i -d "@data.json" -X POST http://localhost:3000/api/blog
-```
-where data.json is:
-```
-{
-  "key1":"value1",
-  "key2":"value2"
-}
-```
-
-For example:
-```
-{
-"id": 1,
-"nickname": "hans",
-"title": "Dies ist ein Test.",
-"content": "Dies ist ein Test."
-}
-```
-
-
-
-#### With Postman
-[Postman](https://www.getpostman.com/downloads/) is a tool for testing the backend API. The following show different requests
-
-##### ORDER get
-GET-Request: 
-```
-localhost:3000/api/blog
-```
-
-##### ORDER post
-POST-Request: 
-```
-localhost:3000/api/blog
-```
-Data: 
-```
-{
-"id": 1,
-"nickname": "hans",
-"title": "Dies ist ein Test.",
-"content": "Dies ist ein Test."
-}
-
-```
-Example response:
-```
-{
-    "message": "We received your blog entry!",
-    "id": "1"
-}
-```
-
-### Helpers and Quirks
 
 #### Start building production code including a watch 
 ```
@@ -218,6 +151,3 @@ In order to parse (analysieren) incoming (HTTP) request bodies in a middleware b
 ```
 $ npm install body-parser --save
 ```
-
-
-

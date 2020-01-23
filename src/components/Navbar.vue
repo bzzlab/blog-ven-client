@@ -21,7 +21,7 @@
                     </li>
                     <!-- Blog -->
                     <li class="nav-item">
-                        <router-link class="nav-link" to="/blog/new" exact>Blog</router-link>
+                        <router-link class="nav-link" to="/blog" exact>Blog</router-link>
                     </li>
                     <!-- registration menu -->
                     <!--<li v-if="!$store.state.isLoggedIn" class="nav-item">-->
