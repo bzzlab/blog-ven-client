@@ -30,7 +30,7 @@ and then type  in the administrator password.
 In the following installation guide the `sudo`-command is omitted. But be aware of the if you're an Apple user without default administrator privileges.
 
 ## Part 1: Installing the frontend
-### Installation guide
+### Cloning the client and installing dependencies
 Step 1: Clone the code from this repo from the command-line
 ```
 git clone https://github.com/bzzlab/blog-ven-client.git
@@ -42,14 +42,6 @@ cd blog-ven-client
 Step 3: Install app dependencies
 ```
 npm install
-```
-Step 4: Build application
-```
-npm run build-client
-```
-Step 5: Run application
-```
-npm run run-client
 ```
 
 ## Part 2: Add some blog-posts to the server
@@ -67,8 +59,9 @@ Step 2: Add the following configurations in order to build and start the client.
 [video-instruction](http://media.bzzlab.ch/ict05/ict-05_blog-client-webstorm-config.mp4). 
 
 
+## Part 4: Adding code to the client in WebStorm (integrated development environment)
+Now change the code according to the following tasks below:
 
-## Part 4: Open client in WebStorm (integrated development environment)
 Task 1: Search in the Project for "Task-1" and add the following code:
 ```
 <div>
