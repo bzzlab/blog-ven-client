@@ -10,9 +10,7 @@ This Blog-application has been developed with the following technology-stack:
 * Vue.js (component-based user-interfaces)
 * babel (transpiler, compatibility of new ECMAScript 6 and higher to ECMAScript 5)
 
-
-## Part 1: Installing the frontend
-### Prerequisite
+## Prerequisite
 You need to install [nodejs](https://nodejs.org/en/) in order to install the required infrastructure. With the installation of nodejs the tool `npm` (Node package manager) is included.
 
 ### Remarks for MacOS-users
@@ -31,6 +29,7 @@ sudo npm install
 and then type  in the administrator password. 
 In the following installation guide the `sudo`-command is omitted. But be aware of the if you're an Apple user without default administrator privileges.
 
+## Part 1: Installing the frontend
 ### Installation guide
 Step 1: Clone the code from this repo from the command-line
 ```
