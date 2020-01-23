@@ -56,7 +56,7 @@ in order to recapture the correct procedure.
 Step 1: Open Webstorm and open the directory **blog-ven-client**.
 
 Step 2: Add the following configurations in order to build and start the client. See therefore the short 
-[video-instruction](http://media.bzzlab.ch/ict05/ict-05_blog-client-webstorm-config.mp4). 
+[video-instruction](http://media.bzzlab.ch/ict/ict-05_blog-client-webstorm-config.mp4). 
 
 
 ## Part 4: Adding code to the client in WebStorm (integrated development environment)
@@ -70,7 +70,7 @@ Task 1: Search in the Project for "Task-1" and add the following code:
 ```
 
 Build and run the client and see what happens. 
-Remark: If you don't see any data then go to the last lesson and add some testdata with Postman or curl. 
+Remark: If you don't see any data then go to the last lesson and add some test-data with Postman or curl. 
 
 Task 2: Search in the Project for task and add the following code:
 ```        
