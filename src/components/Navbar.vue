@@ -25,31 +25,31 @@
                     </li>
                     <!-- registration menu -->
                     <!--<li v-if="!$store.state.isLoggedIn" class="nav-item">-->
-                    <li class="nav-item">
-                        <router-link to="/register" class="nav-link" exact>
-                            Register
-                        </router-link>
-                    </li>
+<!--                    <li class="nav-item">-->
+<!--                        <router-link to="/register" class="nav-link" exact>-->
+<!--                            Register-->
+<!--                        </router-link>-->
+<!--                    </li>-->
                     <!-- Authentication menu -->
-                    <li class="nav-item">
-                        <router-link to="/login" class="nav-link" exact>
-                            Login
-                        </router-link>
-                    </li>
-                    <li class="nav-item">
-                        <!--<a v-on:click.prevent="logout()" class="nav-link" href="#">Logout</a>-->
-                        <a class="nav-link" href="#">Logout</a>
-                    </li>
-                    <li class="nav-item">
-                        <!-- Display the current user's username in the navbar -->
-                        <!-- TODO: Instead of 'User' is it possible to add navigation item
-                                in order to select the login button and when logged in then
-                                the logged-in-user is shown.
-                        -->
-                        <a class="nav-link" href="#">
-                            {{ this.$store.state.username ? this.$store.state.username : 'User' }}
-                        </a>
-                    </li>
+<!--                    <li class="nav-item">-->
+<!--                        <router-link to="/login" class="nav-link" exact>-->
+<!--                            Login-->
+<!--                        </router-link>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item">-->
+<!--                        &lt;!&ndash;<a v-on:click.prevent="logout()" class="nav-link" href="#">Logout</a>&ndash;&gt;-->
+<!--                        <a class="nav-link" href="#">Logout</a>-->
+<!--                    </li>-->
+<!--                    <li class="nav-item">-->
+<!--                        &lt;!&ndash; Display the current user's username in the navbar &ndash;&gt;-->
+<!--                        &lt;!&ndash; TODO: Instead of 'User' is it possible to add navigation item-->
+<!--                                in order to select the login button and when logged in then-->
+<!--                                the logged-in-user is shown.-->
+<!--                        &ndash;&gt;-->
+<!--                        <a class="nav-link" href="#">-->
+<!--                            {{ this.$store.state.username ? this.$store.state.username : 'User' }}-->
+<!--                        </a>-->
+<!--                    </li>-->
                 </ul>
             </div>
         </nav>

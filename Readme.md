@@ -11,7 +11,7 @@ This Blog-application has been developed with the following technology-stack:
 * babel (transpiler, compatibility of new ECMAScript 6 and higher to ECMAScript 5)
 
 
-## Part 1: Installing the backend with a REST-API
+## Part 1: Installing the frontend
 ### Prerequisite
 You need to install [nodejs](https://nodejs.org/en/) in order to install the required infrastructure. With the installation of nodejs the tool `npm` (Node package manager) is included.
 
@@ -53,101 +53,50 @@ Step 5: Run application
 npm run run-client
 ```
 
+## Part 2: Add some blog-posts to the server
+ 
 
-### Tools, helpers and quirks
-#### Which IDE (integrated development environment) is suitable?
-There are a lot of good IDE's. The following ide are widespread
-* [WebStorm](https://www.jetbrains.com/webstorm/) from Jetbrains (my preference)
-* [Visual Studio Code](https://code.visualstudio.com/download) from Microsoft 
+## Part 3: Open client in [WebStorm](https://www.jetbrains.com/webstorm/) by Jetbrains (integrated development environment)
+Task 1: Add the following code and see what happens.
+        <!-- Task-1: Add code here -->
+        <div>
+            {{ blogs }}
+        </div>
+        <!-- Task-End -->
 
+        <!-- Task-2: Add code here -->
+        <div v-for="entry in blogs">
+            <div class="card" style="width: 25rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ entry.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">From {{ entry.nickname }}</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+            </div>
+        <div style="margin-bottom: 1rem"></div>
+        </div>
+        <!-- Task-End -->
 
-
-#### How to debug a node app?
-See for details [here](https://nodejs.org/en/docs/guides/debugging-getting-started/). The important 
-options is
-```
---inspect-brk=127.0.0.1:3000
-```
-Blow the image *Edit Configuration ...* in WebStorm
-![alt text](doc/webstorm-node-debug-option.png "WebStorm-IDE Node")
-
-#### Start building production code including a watch 
-```
-node_modules/.bin/babel dev-server --out-dir prod-server --watch
-```
-
-#### Setting development or production mode in package.json -> scripts
-Setting the running mode differs between MacOS and Windows.  
-* for MacOS
-```
-...
-"temp": "export NODE_ENV=production  && nodemon prod-server/index.js"
-...
-```
-
-* for Windows
-```
-...
-"temp": "set NODE_ENV=production  && nodemon prod-server/index.js"
-...
-```
-
-
-### Remarks on the used npm-modules
-#### Express
-You need `express` (so called middleware) for routing in the backend.
-The command below installs `express` for the application and saves the dependency.
-```
-npm install express --save
-```
-#### Nodemon
-Optional let's install `nodemon` (a tool for monitoring backend code). This tool restarts the server automatically when a change in the code has been detected.
-This replaces a manual restart of the server.
-The command below installs `nodemon` globally for this and all future applications. No dependency is needed.
-```
-npm install nodemon -g
-```
-#### Module import according to ECMAScript 6
-In order to use the `import`-statement (instead of require) according to new ES2015+ (ES6) JavaScript
-language standard, babel as transpiler is needed.
-```
-npm install --save-dev @babel/core @babel/cli @babel/preset-env
-npm install --save @babel/polyfill
-```
-Create a config file named babel.config.js in the *root* of your project with this content:
-```
-const presets = [
-  [
-    "@babel/env",
-    {
-      targets: {
-        edge: "17",
-        firefox: "60",
-        chrome: "67",
-        safari: "11.1",
-      },
-      useBuiltIns: "usage",
-    },
-  ],
-];
-
-module.exports = { presets };
-```
-
-#### Concurrent execution of several npm modules
-Execute more than one script at the same time (concurrent).
-```
-npm install concurrently --save-dev
-```
-
-#### Preventing CORS-error-messages
-Install CORS (Cross-Origin Resource Sharing, see package info https://www.npmjs.com/package/cors, background see https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) and morgan (application logger, see package info https://www.npmjs.com/package/morgan) and save it to the *developer* dependencies.
-```
-npm install cors morgan --save-dev
-```
-
-#### Parsing requests and parameters
-In order to parse (analysieren) incoming (HTTP) request bodies in a middleware before your handlers (available under the req.body property) we need to install body-parser (Body-parser in the http-request, see package info https://www.npmjs.com/package/body-parser) and save it to the *main* dependencies.
-```
-$ npm install body-parser --save
-```
+        <!-- Task-3: Add code here -->
+        <h4 style="margin-top: 2rem; margin-bottom: 1rem">Post a blog</h4>
+        <form @submit.prevent="addPost">
+            <div class="form-group col-md-6">
+                <div class="form-group">
+                    <label for="nickname">Nickname</label>
+                    <input v-model="blog.nickname" type="text" class="form-control" id="nickname" placeholder="Nickname">
+                </div>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input v-model="blog.title" type="text" class="form-control" id="title" placeholder="Title">
+                </div>
+                <div class="form-group">
+                    <label for="content">Text</label>
+                    <textarea v-model="blog.content" class="form-control" id="content" rows="3"/>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" data-toggle="modal"
+                            data-target="#confirmBlogEntry">Create</button>
+                </div>
+            </div>
+        </form>
+        <!-- Task-End -->

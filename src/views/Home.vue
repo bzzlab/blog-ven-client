@@ -4,7 +4,7 @@
                 title="Concert"
                 abstract="Early blog-site of the Frauenfeld festival 2020!"
         />
-        <router-link class="nav-link" to="/blog/new">
+        <router-link class="nav-link" to="/blog">
             <button type="button" class="btn btn-primary">{{label1}}</button>
         </router-link>
     </div>
