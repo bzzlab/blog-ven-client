@@ -54,49 +54,69 @@ npm run run-client
 ```
 
 ## Part 2: Add some blog-posts to the server
- 
+Step 1: Start the blog-server.
 
-## Part 3: Open client in [WebStorm](https://www.jetbrains.com/webstorm/) by Jetbrains (integrated development environment)
-Task 1: Add the following code and see what happens.
-        <!-- Task-1: Add code here -->
-        <div>
-            {{ blogs }}
+Step 2: Add some test-data.
+
+Remark: The steps above have been discussed in the last lesson. So refer to that lesson
+in order to recapture the correct procedure.
+
+## Part 3: Add some blog-posts to the server
+Step 1: Open Webstorm and open the directory **blog-ven-client**.
+
+Step 2: Add the following configurations in order to build and start the client. See therefore the short 
+[video-instruction](http://media.bzzlab.ch/ict05/ict-05_blog-client-webstorm-config.mp4). 
+
+
+
+## Part 4: Open client in WebStorm (integrated development environment)
+Task 1: Search in the Project for "Task-1" and add the following code:
+```
+<div>
+    {{ blogs }}
+</div>
+```
+
+Build and run the client and see what happens. 
+Remark: If you don't see any data then go to the last lesson and add some testdata with Postman or curl. 
+
+Task 2: Search in the Project for task and add the following code:
+```        
+<div v-for="entry in blogs">
+    <div class="card" style="width: 25rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{ entry.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">From {{ entry.nickname }}</h6>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
         </div>
-        <!-- Task-End -->
+    </div>
+<div style="margin-bottom: 1rem"></div>
+</div>
+```
+Build and run the client and see what happens. 
 
-        <!-- Task-2: Add code here -->
-        <div v-for="entry in blogs">
-            <div class="card" style="width: 25rem;">
-                <div class="card-body">
-                    <h5 class="card-title">{{ entry.title }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">From {{ entry.nickname }}</h6>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-        <div style="margin-bottom: 1rem"></div>
+Task 3: Search in the Project for task and add the following code:
+```
+<h4 style="margin-top: 2rem; margin-bottom: 1rem">Post a blog</h4>
+<form @submit.prevent="addPost">
+    <div class="form-group col-md-6">
+        <div class="form-group">
+            <label for="nickname">Nickname</label>
+            <input v-model="blog.nickname" type="text" class="form-control" id="nickname" placeholder="Nickname">
         </div>
-        <!-- Task-End -->
-
-        <!-- Task-3: Add code here -->
-        <h4 style="margin-top: 2rem; margin-bottom: 1rem">Post a blog</h4>
-        <form @submit.prevent="addPost">
-            <div class="form-group col-md-6">
-                <div class="form-group">
-                    <label for="nickname">Nickname</label>
-                    <input v-model="blog.nickname" type="text" class="form-control" id="nickname" placeholder="Nickname">
-                </div>
-                <div class="form-group">
-                    <label for="title">Title</label>
-                    <input v-model="blog.title" type="text" class="form-control" id="title" placeholder="Title">
-                </div>
-                <div class="form-group">
-                    <label for="content">Text</label>
-                    <textarea v-model="blog.content" class="form-control" id="content" rows="3"/>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary" data-toggle="modal"
-                            data-target="#confirmBlogEntry">Create</button>
-                </div>
-            </div>
-        </form>
-        <!-- Task-End -->
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input v-model="blog.title" type="text" class="form-control" id="title" placeholder="Title">
+        </div>
+        <div class="form-group">
+            <label for="content">Text</label>
+            <textarea v-model="blog.content" class="form-control" id="content" rows="3"/>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary" data-toggle="modal"
+                    data-target="#confirmBlogEntry">Create</button>
+        </div>
+    </div>
+</form>
+```
+Build and run the client and see what happens.
