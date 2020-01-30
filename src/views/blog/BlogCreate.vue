@@ -13,7 +13,9 @@
         <!-- Task-3: Add code here -->
         <!-- Task-End -->
 
-        <div style="margin-bottom: 5rem"></div>
+
+
+        <div style="margin-bottom: 5rem"> {{ message }} </div>
     </div>
 </template>
 
@@ -24,6 +26,7 @@
     export default {
         name: "BlogCreate",
         data: () => ({
+            message: null,
             blogs: null,
             blog: {
                 nickname: "",
@@ -49,11 +52,13 @@
                         headers: {"content-type":"application/json"}
                     })
                     .then(res => res.json());
-                this.proceed();
+                this.message = 'Your blog has been posted.';
+                location.reload();
             },
             proceed(){
                 //redirect to oder list
                 this.$router.push("/blog");
+                this.message = 'Blog posted.'
             }
         }
     }

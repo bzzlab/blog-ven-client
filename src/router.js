@@ -18,15 +18,18 @@ const routes = new Router({
             component: Home
         }, {
             path: "/blog",
-            name: "blog-create",
-            component: BlogCreate
-            // beforeEnter: (toolbar,from,next) => {
-            //     if (auth.isLoggedIn){
-            //         next();
-            //     } else {
-            //         next('/login');
-            //     }
-            // }
+            name: "blog-list",
+            component: BlogCreate,
+            //https://stackoverflow.com/questions/48681663/vue-router-does-not-redirect
+            beforeEnter: (toolbar,from,next) => {
+                next(); //important to add next()
+                // later implementation
+                // if (auth.isLoggedIn){
+                //     next();
+                // } else {
+                //     next('/login');
+                // }
+            }
         }, {
             path: "/login",
             name: "login",
@@ -59,3 +62,9 @@ const routes = new Router({
 
 //export routes (aka navigation information)
 export default routes;
+
+/*
+1: Vue Router does not redirect
+
+
+ */
