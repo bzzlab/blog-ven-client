@@ -5,15 +5,47 @@
         <h4>Recent entries</h4>
 
         <!-- Task-1: Add code here -->
+        <!--        <div>-->
+        <!--            {{ blogs }}-->
+        <!--        </div>-->
         <!-- Task-End -->
 
         <!-- Task-2: Add code here -->
+        <div v-for="entry in blogs">
+            <div class="card" style="width: 25rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ entry.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">From {{ entry.nickname }}</h6>
+                    <p class="card-text">{{ entry.content }}</p>
+                </div>
+            </div>
+            <div style="margin-bottom: 1rem"></div>
+        </div>
         <!-- Task-End -->
 
         <!-- Task-3: Add code here -->
+        <h4 style="margin-top: 2rem; margin-bottom: 1rem">Post a blog</h4>
+        <form v-on:submit.prevent="addPost">
+            <div class="form-group col-md-6">
+                <div class="form-group">
+                    <label for="nickname">Nickname</label>
+                    <input v-model="blog.nickname" type="text" class="form-control" id="nickname" placeholder="Nickname">
+                </div>
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input v-model="blog.title" type="text" class="form-control" id="title" placeholder="Title">
+                </div>
+                <div class="form-group">
+                    <label for="content">Text</label>
+                    <textarea v-model="blog.content" class="form-control" id="content" rows="3"/>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" data-toggle="modal"
+                            data-target="#confirmBlogEntry">Create</button>
+                </div>
+            </div>
+        </form>
         <!-- Task-End -->
-
-
 
         <div style="margin-bottom: 5rem"> {{ message }} </div>
     </div>
